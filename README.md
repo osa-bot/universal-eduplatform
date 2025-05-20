@@ -1,124 +1,115 @@
-![ITMO](https://raw.githubusercontent.com/aimclub/open-source-ops/43bb283758b43d75ec1df0a6bb4ae3eb20066323/badges/ITMO_badge_rus.svg)
-[![license](https://badgen.net/static/license/MIT/blue)](https://badgen.net/static/license/MIT/blue)
-[![python](https://badgen.net/badge/python/3.9|3.10|3.11/blue?icon=python)](https://www.python.org/)
-[![react](https://badgen.net/static/react/18.2/orange)](https://github.com/LISA-ITMO/universal-eduplatform/issues)
+# universal-eduplatform
 
-[<img src="./docs/img/logo.jpg" width="450" />](docs/img/logo.jpg)
-# Quiz-platform for education | Платформа викторин для образования
+---
 
-This repository contains a tool — an interactive platform for analyzing personal competencies in the areas of analytical thinking and creativity. The platform is designed for educational environments and provides the ability to create tests as well as take tests from other users to assess skills and knowledge.
+![License](https://img.shields.io/github/license/LISA-ITMO/universal-eduplatform?style=flat&logo=opensourceinitiative&logoColor=white&color=blue)
+[![OSA-improved](https://img.shields.io/badge/improved%20by-OSA-yellow)](https://github.com/aimclub/OSA)
 
-The key advantage is the integration of an AI assistant that is trained on a limited sample of data from teachers and students, allowing it to be adapted first for one, and then for several study groups.
+Built with:
 
-Development is being carried out on the [DEV](https://github.com/LISA-ITMO/universal-eduplatform/tree/DEV) branch.
+![django](https://img.shields.io/badge/Django-092E20.svg?style={0}&logo=Django&logoColor=white)
+![jinja2](https://img.shields.io/badge/Jinja-B41717.svg?style={0}&logo=Jinja&logoColor=white)
+![numpy](https://img.shields.io/badge/NumPy-013243.svg?style={0}&logo=NumPy&logoColor=white)
+![python](https://img.shields.io/badge/Python-3776AB.svg?style={0}&logo=Python&logoColor=white)
 
-- Read the user manual before you get started - [User manual](docs/user_manual.md)
+---
 
-- Available at the link - [Quiz-platform for education]()
+## Overview
 
-> Please help us improve this project, share your feedback with [opening issue](https://github.com/LISA-ITMO/universal-eduplatform/issues)
+Universal Eduplatform is an educational tool designed to assess and develop analytical thinking and creativity. It allows educators to create personalized tests, leveraging AI to adapt to individual student needs and facilitate peer learning through cross-testing, ultimately building a digital personal image of competency.
 
+---
 
-## Demo
+## Table of Contents
 
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=example">
-    <img src="docs/Demo.gif" alt="Demo video" style="width:100%;">
-  </a>
-</p>
+- [Core features](#core-features)
+- [Installation](#installation)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [License](#license)
+- [Citation](#citation)
 
-### How to use it in practice:
+---
+## Core features
 
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=example">
-    <img src="docs/Conducting-cross-testing.gif" alt="Demo video of cross-testing" style="width:100%;">
-  </a>
-</p>
+1. **Test Creation and Management**: Allows educators to create, edit, and organize tests/quizzes with various question types to assess student competencies.
+2. **AI-Powered Adaptation**: Integrates an AI assistant trained on teacher and student data to personalize test content and adapt difficulty levels for individual learners or groups.
+3. **User Roles and Permissions**: Defines different user roles (student, teacher, admin) with specific permissions controlling access to features and data within the platform.
+4. **Competency Assessment Algorithm**: Implements an algorithm for evaluating individual student competencies based on their performance in tests, providing insights into strengths and weaknesses.
+5. **User Authentication and Authorization**: Securely manages user accounts, login credentials, and access control to protect sensitive data.
 
-## Documentation
-Details of the documentation can be found at the links below:
-
-- [The architecture of the Quiz platform for education](docs/architecture.md) - the overall architecture and modules of the platform are described here
-
-- [Use cases of the Quiz platform for education](docs/use_case.md) - customised use cases are described here
-
-- [ER-diagrams](docs/er_diagram.md), [Sequence Diagram](docs/sequence_diagrams.md)  - this document will help you determine what data you will get out and how you can use it.
-
-- [Algorithm of assessment of individual competences](docs/evaluation_algorithm.md)  - here you can familiarise yourself with the algorithm of assessment of individual abilities - competences, which is embedded in the Quiz platform.
-
+---
 
 ## Installation
 
-### 1. Select the DEV branch
-```
-git checkout DEV
-```
+**Prerequisites:** requires Python ^3.10
 
-### 2. Create environment files:
-```
-touch ./compose/.env.analytics ./compose/.env.subjects ./compose/.env.tests ./compose/.env.users
-```
+Install universal-eduplatform using one of the following methods:
 
-### 3. Fill all environment files according to the same template
-```bash
-# Setting environment variables for Django project
-SECRET_KEY = '<Django key>'
-DEBUG = False
-ALLOWED_HOSTS = <valid hosts through ,>
-CSRF_TRUSTED_ORIGINS = <valid hosts through ,>
-# Variables for creating a Django superuser
-DJANGO_SUPERUSER_USERNAME=<username Django>
-DJANGO_SUPERUSER_EMAIL=<user mail Django>
-DJANGO_SUPERUSER_PASSWORD=<Django's password>
+**Build from source:**
+
+1. Clone the universal-eduplatform repository:
+```sh
+git clone https://github.com/LISA-ITMO/universal-eduplatform
 ```
 
-### 4. Create database files
-```bash
-mkdir dbs
-touch ./dbs/.analytics_db.sqlite3 ./dbs/.subjects_db.sqlite3 ./dbs/.tests_db.sqlite3 ./dbs/.users_db.sqlite3
+2. Navigate to the project directory:
+```sh
+cd universal-eduplatform
 ```
 
-### 5. Start the image build
-```bash
-docker compose -f compose/docker-compose.yml up
+3. Install the project dependencies:
+
+```sh
+pip install -r requirements.txt
 ```
 
-### 6. The project is available localhost:8888
+---
 
-### 7. Admin panels are available at localhost:8888/<module name>/admin/
+## Documentation
 
-## Contacts
-This platform is being developed at ITMO University, LISA laboratory as part of the research work on "Methods and algorithms for intelligent services and applications".
+A detailed universal-eduplatform description is available [here](https://github.com/LISA-ITMO/universal-eduplatform/tree/main/docs).
 
-The team working on the project is listed below (everyone can be contacted personally):
+---
 
-- [Ishutina Yelizaveta](https://t.me/ishutachkaa) - Project manager. If you have any questions, please write to ([liz16z2001@mail.ru](mailto:liz16z2001@mail.ru))
+## Contributing
 
-- [Kuznetsov Vyacheslav](https://t.me/viacheslav_kuznetcov)-  Team leader
+- **[Report Issues](https://github.com/LISA-ITMO/universal-eduplatform/issues)**: Submit bugs found or log feature requests for the project.
 
-- [Kalacheva Vera](https://t.me/verkalacheva) - Backend developer
+---
 
-- [Antsiferova Tatiana](https://t.me/antsiferovaTA) - Backend developer
+## License
 
-- [Sobol Vladimir](https://t.me/vovasobol1) - Backend developer
+This project is protected under the MIT License. For more details, refer to the [LICENSE](https://github.com/LISA-ITMO/universal-eduplatform/tree/main/client/web/build/static/js/main.036138a9.js.LICENSE.txt) file.
 
-- [Soloveva Polina](https://t.me/solcticeranger) - Data Scientist
+---
 
-- [Orudzhev Eldar](https://t.me/eldar_oru) - Mobile-developer
+## Citation
 
-- [Stabrovskiy Vladimir](https://t.me/godnesty) - Mobile-developer
+If you use this software, please cite it as below.
 
-- [Timonenko Nikolay](https://t.me/NikTimo) - DevOps engineer
+### APA format:
 
-### Scientific supervisors:
-- [Grudinin Vladimir](https://itmo.ru/ru/viewperson/434/grudinin_vladimir_alekseevich.htm)
-- [Gorelik Samuel](https://edu.itmo.ru/ru/lecturers_and_professors/175676)
+    LISA-ITMO (2024). universal-eduplatform repository [Computer software]. https://github.com/LISA-ITMO/universal-eduplatform
 
+### BibTeX format:
 
-## Publications About Quiz-platform for education
-- [Индивидуальный цифровой имидж человека как фактор капитализации личности](https://research-journal.org/archive/7-145-2024-july/10.60797/IRJ.2024.145.91)
-- [Как AI-ассистент и кросс-тестирование меняют подход к обучению](https://vc.ru/ai/1824697-kak-ai-assistent-i-kross-testirovanie-menyayut-podhod-k-obucheniyu)
-- [Сервис для интеллектуального кросс-тестирования учащихся](https://studnauka.itmo.ru/assets/files/sborniki/sbornik_almanac_2024_tom_2.pdf)
-- [Алгоритм оценивания индивидуальных способностей в сервисе для интеллектуального кросс-тестирования](https://kmu.itmo.ru/digests/article/13777)
-- [Разработка мобильного приложения для сервиса по составлению и прохождению тестов учащимися](https://kmu.itmo.ru/digests/article/12401)
-- [Разработка интеллектуальной системы с возможностью генерации и персонализации под пользователя вопросов на основе учебных материалов](https://kmu.itmo.ru/digests/article/13672)
+    @misc{universal-eduplatform,
+
+        author = {LISA-ITMO},
+
+        title = {universal-eduplatform repository},
+
+        year = {2024},
+
+        publisher = {github.com},
+
+        journal = {github.com repository},
+
+        howpublished = {\url{https://github.com/LISA-ITMO/universal-eduplatform.git}},
+
+        url = {https://github.com/LISA-ITMO/universal-eduplatform.git}
+
+    }
+
+---
